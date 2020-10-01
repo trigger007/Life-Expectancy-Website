@@ -1,0 +1,45 @@
+<html>
+    <title>
+        Life Expectancy Calculator
+    </title>
+    <body>
+        <div>
+        <h3>Enter your details</h3>
+        <form method="POST" action="{{ url_for('interact_life_expectancy', _anchor='Report')}}">
+            <p><label>Gender</label>
+            <select name="sex">
+            <option value="{{default_sex}}" selected>{{defual_sex}}</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Both">Both</option>
+            </select></p>
+           
+            <p><label>Country</label>
+            <select name="country">
+             <option value="{{default_country}}" selected>{{defual_country}}</option>
+                {% for country in country_list %}
+                <option value="{{country}}">{{country}}</option>
+                {% endfor %}
+            </select></p>
+            
+            <p><label>Age</label>
+            <select name="age">
+             <option value="{{default_age}}" selected>{{defual_age}}</option>
+                {% for age in range(1,100) %}
+                <option value="{{age}}">{{age}}</option>
+                {% endfor %}
+            </select></p>
+            
+            <p><button type="submit">Time Left</button></p>
+            
+            </form>
+        </div>
+        
+        <div>
+        <p>
+            output:
+            {{string_print}}
+        </p>
+        </div>
+    </body>
+</html>
